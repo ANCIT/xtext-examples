@@ -3,6 +3,9 @@
  */
 package org.ancit.examples.xtext.validation
 
+import org.eclipse.xtext.validation.Check
+import addressbook.Contact
+import addressbook.AddressbookPackage
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +14,15 @@ package org.ancit.examples.xtext.validation
  */
 class MyABDslValidator extends AbstractMyABDslValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					MyABDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	public static val INVALID_NAME = 'invalidName'
+
+	@Check
+	def checkContactNameStartsWithCapital(Contact contact) {
+		if (!Character.isUpperCase(contact.name.charAt(0))) {
+			warning('Name should start with a capital', 
+					AddressbookPackage.Literals.CONTACT__NAME,
+					INVALID_NAME)
+		}
+	}
 	
 }
